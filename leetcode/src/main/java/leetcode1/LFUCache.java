@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 460
  * 请你为 最不经常使用（LFU）缓存算法设计并实现数据结构。它应该支持以下操作：get 和 put。
  *
  * get(key) - 如果键存在于缓存中，则获取键的值（总是正数），否则返回 -1。
@@ -32,9 +33,6 @@ import java.util.Map;
         *cache.get(3);       // 返回 3
         *cache.get(4);       // 返回 4
         *
-        *来源：力扣（LeetCode）
-        *链接：https://leetcode-cn.com/problems/lfu-cache
-        *著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LFUCache {
 
