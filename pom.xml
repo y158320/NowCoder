@@ -22,6 +22,7 @@
         <module>improve</module>
 		<module>aim</module>
         <module>nowcoder_search</module>
+        <module>rpcstudy</module>
     </modules>
 	<packaging>pom</packaging>
 
