@@ -39,18 +39,19 @@ public class LeetCode103 {
        return lists;
     }
 
-    public void dfs(TreeNode root,int num)
+    public int dfs(TreeNode root,int num)
     {
         if (root==null)
         {
-            return;
+            return 0;
         }
         List<Integer> list=new ArrayList<>();
         if (0==num)
         {
-            dfs(root.right,1);
-            dfs(root.left,1);
-            list.add(root.val);
+            int right=dfs(root.right,1);
+            int left=dfs(root.left,1);
+            list.add(right);
+            list.add(left);
             lists.add(list);
         }else
         {
@@ -59,6 +60,32 @@ public class LeetCode103 {
             list.add(root.val);
             lists.add(list);
         }
+        return root.val;
+    }
+
+    public List<List<Integer>> zigzagLevelOrder1(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        traversal(root, res, 0);
+        return res;
+    }
+
+    private void traversal(TreeNode root, List<List<Integer>> res, int level) {
+        if (root == null) {
+            return;
+        }
+
+        if (res.size() == level) {
+            res.add(new ArrayList<Integer>());
+        }
+
+        if ((level & 1) == 1){
+            res.get(level).add(0, root.val);
+        } else {
+            res.get(level).add(root.val);
+        }
+
+        traversal(root.left, res, level + 1);
+        traversal(root.right, res, level + 1);
     }
 
 }
