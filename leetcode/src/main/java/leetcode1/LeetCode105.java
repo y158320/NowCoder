@@ -48,7 +48,7 @@ public class LeetCode105 {
        int i=0;
        while (preorder[0]==inorder[i])
        {
-//           root.left=buildTree()
+//           root.left=buildTree( )
        }
        return root;
     }
