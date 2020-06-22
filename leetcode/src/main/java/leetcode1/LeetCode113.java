@@ -36,7 +36,7 @@ public class LeetCode113 {
             return null;
         }
         dsf(root,sum,0);
-        if (root.left==null && root.right==null &&)
+//        if (root.left==null && root.right==null)
         return lists;
     }
 
