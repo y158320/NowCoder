@@ -36,7 +36,7 @@ import java.util.Map;
  */
 public class LFUCache {
 
-    Map<Integer, Node> cache;
+    Map<Integer, Node1> cache;
     DoublyLinkedList firstLinkedList;
     DoublyLinkedList lastLinkedList;
     int size;
@@ -52,7 +52,7 @@ public class LFUCache {
     }
 
     public int get(int key) {
-        Node node = cache.get(key);
+        Node1 node = cache.get(key);
         if (node == null) {
             return -1;
         }
@@ -64,7 +64,7 @@ public class LFUCache {
         if (capacity == 0) {
             return;
         }
-        Node node = cache.get(key);
+        Node1 node = cache.get(key);
         if (node != null) {
             node.value = value;
             freqInc(node);
@@ -78,7 +78,7 @@ public class LFUCache {
                     removeDoublyLinkedList(lastLinkedList.pre);
                 }
             }
-            Node newNode = new Node(key, value);
+            Node1 newNode = new Node1(key, value);
             cache.put(key, newNode);
             if (lastLinkedList.pre.freq != 1) {
                 DoublyLinkedList newDoublyLinedList = new DoublyLinkedList(1);
@@ -91,7 +91,7 @@ public class LFUCache {
         }
     }
 
-    void freqInc(Node node) {
+    void freqInc(Node1 node) {
         // 将node从原freq对应的链表里移除, 如果链表空了则删除链表,
         DoublyLinkedList linkedList = node.doublyLinkedList;
         DoublyLinkedList preLinkedList = linkedList.pre;
@@ -124,17 +124,17 @@ public class LFUCache {
     }
 }
 
-class Node {
+class Node1 {
     int key;
     int value;
     int freq = 1;
-    Node pre;
-    Node post;
+    Node1 pre;
+    Node1 post;
     DoublyLinkedList doublyLinkedList;
 
-    public Node() {}
+    public Node1() {}
 
-    public Node(int key, int value) {
+    public Node1(int key, int value) {
         this.key = key;
         this.value = value;
     }
@@ -144,30 +144,30 @@ class DoublyLinkedList {
     int freq;
     DoublyLinkedList pre;
     DoublyLinkedList post;
-    Node head;
-    Node tail;
+    Node1 head;
+    Node1 tail;
 
     public DoublyLinkedList() {
-        head = new Node();
-        tail = new Node();
+        head = new Node1();
+        tail = new Node1();
         head.post = tail;
         tail.pre = head;
     }
 
     public DoublyLinkedList(int freq) {
-        head = new Node();
-        tail = new Node();
+        head = new Node1();
+        tail = new Node1();
         head.post = tail;
         tail.pre = head;
         this.freq = freq;
     }
 
-    void removeNode(Node node) {
+    void removeNode(Node1 node) {
         node.pre.post = node.post;
         node.post.pre = node.pre;
     }
 
-    void addNode(Node node) {
+    void addNode(Node1 node) {
         node.post = head.post;
         head.post.pre = node;
         head.post = node;
