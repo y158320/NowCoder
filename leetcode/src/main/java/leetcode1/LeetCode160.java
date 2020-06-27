@@ -45,21 +45,6 @@ import java.util.List;
  */
 public class LeetCode160 {
 
-    public class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) {
-          val = x;
-          next = null;
-      }
-  }
-
-    @Test
-    public void say()
-    {
-
-    }
-
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA==null||headB==null)
         {
