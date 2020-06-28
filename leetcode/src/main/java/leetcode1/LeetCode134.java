@@ -1,5 +1,7 @@
 package leetcode1;
 
+import org.junit.Test;
+
 /**
  * 在一条环路上有 N 个加油站，其中第 i 个加油站有汽油 gas[i] 升。
  *
@@ -47,9 +49,12 @@ package leetcode1;
  */
 public class LeetCode134 {
 
+    @Test
     public void test()
     {
-
+        int[] gas={1,2,3,4,5};
+        int[] cost={3,4,5,1,2};
+        System.out.println(canCompleteCircuit(gas,cost));
     }
 
     public int canCompleteCircuit(int[] gas, int[] cost) {
@@ -62,30 +67,33 @@ public class LeetCode134 {
        {
            if (gas[i]>=cost[i])
            {
-               if (dfs(i,i+1,gas,cost)){
+               if (dfs(i,i+1,gas,cost,gas[i]-cost[i])){
                    b=i;
+                   break;
                }
            }
        }
        return b;
     }
 
-    public boolean dfs(int start,int now,int[] gas, int[] cost)
+    public boolean dfs(int start,int now,int[] gas, int[] cost ,int sum)
     {
         if (start==now)
         {
             return true;
         }
-        if (gas[now]>=cost[now])
+        if ((gas[now]+sum)>=cost[now])
         {
-            if (now==gas.length)
+            if (now>=gas.length-1)
             {
-                dfs(now,now+1,gas,cost);
+                dfs(start,0,gas,cost,sum+gas[now]-cost[now]);
+            }else {
+                dfs(start,now+1,gas,cost,sum+gas[now]-cost[now]);
             }
         }else {
             return false;
         }
-        return false;
+        return true;
     }
 
 }
