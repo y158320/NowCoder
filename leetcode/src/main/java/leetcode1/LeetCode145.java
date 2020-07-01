@@ -5,7 +5,7 @@ import java.util.List;
 
 public class LeetCode145 {
 
-    List<Integer> list=new ArrayList<>();
+    List<Integer> list =new ArrayList<>();
 
     public List<Integer> postorderTraversal(TreeNode root) {
        if (root==null)
