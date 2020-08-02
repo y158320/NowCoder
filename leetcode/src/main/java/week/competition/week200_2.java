@@ -122,4 +122,17 @@ public class week200_2 {
         return arr;
     }
 
+    public int getWinner1(int[] arr, int k) {
+        int win=arr[0],count=0;/*win:胜利者,count:获胜场次*/
+        for(int i=1;i<arr.length&&count<k;i++){/*到达获胜场次跳出循环*/
+            if(arr[i]<win){/*arr[i]比win小*的情况*/
+                count++;
+            }else{/*如果win输掉了产生新的胜利者，count置为1*/
+                win=arr[i];
+                count=1;
+            }
+        }
+        return win;/*遍历一遍都没到达k,直接返回最大值*/
+    }
+
 }
