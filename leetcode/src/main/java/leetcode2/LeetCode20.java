@@ -1,6 +1,4 @@
-package LeetCode3;
-
-import org.junit.Test;
+package leetcode2;
 
 import java.util.Stack;
 
@@ -37,19 +35,23 @@ import java.util.Stack;
  */
 public class LeetCode20 {
 
-    @Test
-    public void say()
-    {
-        isValid("(())");
-    }
-
     public boolean isValid(String s) {
-        Stack<Character>stack = new Stack<Character>();
-        for(char c: s.toCharArray()){
-            if(c=='(')stack.push(')');
-            else if(c=='[')stack.push(']');
-            else if(c=='{')stack.push('}');
-            else if(stack.isEmpty()||c!=stack.pop())return false;
+        Stack<Character> stack=new Stack<>();
+        for (char k : s.toCharArray())
+        {
+            if (k=='(')
+            {
+                stack.push(')');
+            }else if (k=='[')
+            {
+                stack.push(']');
+            }else if (k=='{')
+            {
+                stack.push('}');
+            }else if (stack.isEmpty() || stack.pop()!=k)
+            {
+                return false;
+            }
         }
         return stack.isEmpty();
     }
