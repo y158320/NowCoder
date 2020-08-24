@@ -187,14 +187,14 @@ public class Sort {
 
     // ****** 7.归并排序 ******
     // 主函数
-    public static int[] MergeSort(int[] arr){
+    public int[] MergeSort(int[] arr){
         if(arr.length == 0 || arr.length ==1)
             return arr;
         arr = Merge(arr,0,arr.length-1);
         return arr;
     }
     // 归并排序
-    public static int[] Merge(int[] arr,int start,int last){
+    public int[] Merge(int[] arr,int start,int last){
         // start < last 的判断意味着 arr 指定的范围内必须至少有两个元素
         if(start < last){
             int mid = (start + last) / 2;
