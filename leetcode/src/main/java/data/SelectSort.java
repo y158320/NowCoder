@@ -18,6 +18,7 @@ public class SelectSort {
     }
 
     public int[] selectSort(int[] arr) {
+        //直接循环遍历最小的
        for (int i=0;i<arr.length-1;i++)
        {
            int min=i;

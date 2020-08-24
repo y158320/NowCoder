@@ -18,19 +18,20 @@ public class insertSort {
     }
 
     public int[] insertSort(int[] arr) {
-        if (arr == null || arr.length < 2) {
-            return arr;
-        }
+        //标记元素
         for (int i=1;i<arr.length;i++)
         {
             for (int j=i;j>0;j--)
             {
+                //前一个数据大于后面的数据就交换
                 if (arr[j-1]>arr[j])
                 {
                     int temp=arr[j-1];
                     arr[j-1]=arr[j];
                     arr[j]=temp;
-                }else
+                }
+                //小于直接跳出循环
+                else
                 {
                     break;
                 }

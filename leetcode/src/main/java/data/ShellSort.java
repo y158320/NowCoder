@@ -21,7 +21,9 @@ public class ShellSort {
         //希尔排序
         int gap = arr.length;
         while (true) {
-            gap /= 2;   //增量每次减半
+            //增量每次减半
+            gap /= 2;
+            //里面就是直接插入排序
             for (int i = 0; i < gap; i++) {
                 for (int j = i + gap; j < arr.length; j += gap) {
                     int temp = arr[j];
