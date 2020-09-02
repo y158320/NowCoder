@@ -42,15 +42,23 @@ import java.util.Map;
 public class week1566 {
 
     public boolean containsPattern(int[] arr, int m, int k) {
-       if(arr==null)
-       {
-           return false;
-       }
-       Map<String,Integer> map=new HashMap<>();
-       for (int i=0;i<arr.length;i++)
-       {
-
-       }
+        int len = m*k;
+        if (arr.length<len)
+        {
+            return false;
+        }
+        for(int i = 0; i <= arr.length - len; i++){
+            boolean check = true;
+            for(int j = i + m;j < i + k*m ; j++){
+                if(arr[j] != arr[j-m])
+                {
+                    check = false;
+                }
+            }
+            if(check) {
+                return true;
+            }
+        }
         return false;
     }
 
