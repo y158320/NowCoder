@@ -11,7 +11,7 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public User findByName(String Name)
+    public User   findByName(String Name)
     {
         return userDao.findByName(Name);
     }
