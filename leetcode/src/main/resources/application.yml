@@ -1,8 +1,0 @@
-server:
-  port: 8081
-spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.104.159.8:3306/nowcode?characterEncoding=utf-8
-    username: root
-    password: Star*2018

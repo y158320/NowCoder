@@ -1,6 +1,0 @@
-server:
-  port: 8081
-spring:
-  data:
-    elasticsearch:
-      cluster-name: 127.0.0.1:9300
